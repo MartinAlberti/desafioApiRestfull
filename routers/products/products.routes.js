@@ -24,16 +24,15 @@ router.get('/:productId', (req, res) => {
   });
 
   router.post("/", (req, res ) =>{
-    const { name, description, price, image } = req.body;
-    if (!name || !description || !price || !image) {
+    const { title, price, thumbnail } = req.body;
+    if (!title || !price || !thumbnail) {
         return res.status(400).json({ succes: false, error: 'Wrong body format' });
       }
       const newProduct = {
         id: products.length + 1,
-        name,
-        description,
+        title,
         price,
-        image
+        thumbnail
       };
       products.push(newProduct);
 
@@ -42,18 +41,17 @@ router.get('/:productId', (req, res) => {
   })
 
   router.put('/:productId', (req, res) => {
-    const { params: { productId }, body: { name, description, price, image } } = req;
-    if (!name || !description || !price || !image) {
+    const { params: { productId }, body: { title, price, thumbnail } } = req;
+    if (!title || !price || !thumbnail) {
       return res.status(400).json({ success: false, error: 'Wrong body format' });
     };
     const productIndex = products.findIndex((product) => product.id === +productId);
     if (productIndex < 0) return res.status(404).json({ success: false, error: `Product with id: ${productId} does not exist!` });
     const newProduct = {
       ...products[productIndex],
-      name,
-      description,
+      title,
       price,
-      image
+      thumbnail
     };
     products[productIndex] = newProduct;
     return res.json({ success: true, result: newProduct });
