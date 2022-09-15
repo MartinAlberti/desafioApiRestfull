@@ -5,6 +5,6 @@ const filesRoutes = require ("./files/files.routes")
 
 const router = express.Router();
 router.use("/products", productsRoutes);
-// router.use(filesRoutes)
+router.use(filesRoutes)
 
 module.exports = router
