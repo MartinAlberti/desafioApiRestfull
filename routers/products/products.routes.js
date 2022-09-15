@@ -31,7 +31,7 @@ router.get('/:productId', (req, res) => {
       const newProduct = {
         id: products.length + 1,
         title,
-        price,
+        price: +(price),
         thumbnail
       };
       products.push(newProduct);
@@ -50,7 +50,7 @@ router.get('/:productId', (req, res) => {
     const newProduct = {
       ...products[productIndex],
       title,
-      price,
+      price: +(price),
       thumbnail
     };
     products[productIndex] = newProduct;
@@ -62,7 +62,7 @@ router.get('/:productId', (req, res) => {
     const productIndex = products.findIndex(product => product.id === +productId);
     if (productIndex < 0) return res.status(404).json({ success: false, error: `Product with id ${productId} does not exist!` });
     products.splice(productIndex, 1);
-    return res.json({ success: true, result: 'product correctly eliminated' });
+    return res.json({ success: true, result: 'product deleted correctly ' });
   });
 
 module.exports = router;

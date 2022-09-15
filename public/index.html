@@ -14,28 +14,39 @@
 </head>
 
 <body>
-    <div class="container d-flex  justify-content-center mt-5 ">
-
-        <form action="/api/products" method="post" class="">
-            <div class="mb-3">
+    <div class="container  w-25 justify-content-center mt-5  ">
+        <form action="/api/products" method="post" enctype="multipart/form-data">
+            <div class="mb-3 text-center">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control">
+                <input type="text" name="title" id="title" class="form-control shadow-sm">
             </div>
-
-            <div class="mb-3">
+            <div class="mb-3 text-center">
                 <label for="price">Price</label>
-                <input type="number" name="price" id="price" class="form-control">
+                <input type="number" name="price" id="price" class="form-control shadow-sm">
             </div>
-
-            <div class="mb-3">
+            <div class="mb-3 text-center">
                 <label for="thumbnail">Thumbnail</label>
-                <input type="text" name="thumbnail" id="thumbnail" class="form-control">
+                <input type="text" name="thumbnail" id="thumbnail" class="form-control shadow-sm">
             </div>
-
-
-            <input type="submit" value="Crear producto" class="submit-button mt-4">
-    </div>
+            <div class="d-flex  justify-content-center">
+                <input type="submit" value="Crear producto" class="submit-button btn btn-dark mt-4  ">
+            </div>
+        </form>
+        <h3 class="text-center mt-5" > Sube tus archivos! </h3>
+<!-- Single File -->
+<div class="single-file-form">
+    <form action='/api/file' enctype="multipart/form-data" method="POST">
+        <input type="file" id="file" name="single-file" class="input-file">
+      <div><input type="submit" value="Upload File" class="submit-button mt-2 mb-5 btn btn-dark"></div>
     </form>
+  </div>
+  <!-- Multiple Files -->
+  <div class="multiple-files-form">
+    <form action='/api/file' enctype="multipart/form-data" method="POST">
+        <input type="files" id="files" name="multiple-files" multiple class="input-file">
+        <div><input type="submit" value="Upload Files" class="submit-button mt-2 btn btn-dark"></div>
+    </form>
+  </div>
     </div>
 
 </body>
