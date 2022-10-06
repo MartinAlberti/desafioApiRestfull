@@ -24,15 +24,17 @@ router.get('/:productId', (req, res) => {
   });
 
   router.post("/", (req, res ) =>{
-    const { title, price, thumbnail } = req.body;
-    if (!title || !price || !thumbnail) {
+    const { title, price, thumbnail, description, stock  } = req.body;
+    if (!title || !price || !thumbnail || !description || !stock) {
         return res.status(400).json({ succes: false, error: 'Wrong body format' });
       }
       const newProduct = {
         id: products.length + 1,
         title,
         price: +(price),
-        thumbnail
+        thumbnail,
+        description,
+        stock: +(stock)
       };
       products.push(newProduct);
 
@@ -41,8 +43,8 @@ router.get('/:productId', (req, res) => {
   })
 
   router.put('/:productId', (req, res) => {
-    const { params: { productId }, body: { title, price, thumbnail } } = req;
-    if (!title || !price || !thumbnail) {
+    const { params: { productId }, body: { title, price, thumbnail, description, stock } } = req;
+    if (!title || !price || !thumbnail || !description || !stock) {
       return res.status(400).json({ success: false, error: 'Wrong body format' });
     };
     const productIndex = products.findIndex((product) => product.id === +productId);
@@ -51,7 +53,9 @@ router.get('/:productId', (req, res) => {
       ...products[productIndex],
       title,
       price: +(price),
-      thumbnail
+      thumbnail,
+      description,
+      stock: +(stock),
     };
     products[productIndex] = newProduct;
     return res.json({ success: true, result: newProduct });

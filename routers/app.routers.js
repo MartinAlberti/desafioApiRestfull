@@ -7,4 +7,4 @@ const router = express.Router();
 router.use("/products", productsRoutes);
 router.use(filesRoutes)
 
-module.exports = router
+module.exports = router;

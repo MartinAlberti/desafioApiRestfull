@@ -15,7 +15,7 @@
 
 <body>
     <div class="container  w-25 justify-content-center mt-5  ">
-        <form action="/api/products" method="post" enctype="multipart/form-data">
+        <form action="/products" method="post" enctype="multipart/form-data">
             <div class="mb-3 text-center">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" name="title" id="title" class="form-control shadow-sm">
@@ -28,31 +28,19 @@
                 <label for="thumbnail">Thumbnail</label>
                 <input type="text" name="thumbnail" id="thumbnail" class="form-control shadow-sm">
             </div>
+             <div class="mb-3 text-center">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" class="form-control shadow-sm">
+            </div>
+            <div class="mb-3 text-center">
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" id="stock" class="form-control shadow-sm">
+            </div>
             <div class="d-flex  justify-content-center">
                 <input type="submit" value="Crear producto" class="submit-button btn btn-dark mt-4  ">
             </div>
         </form>
-        <h3 class="text-center mt-5"> Sube tus archivos! </h3>
-        <!-- Single File -->
-        <div>
-            <form action="/api/file" enctype="multipart/form-data" method="POST">
-                <input type="file" id="file" name="file" class="input-file">
-                <div>
-                    <input type="submit" value="Upload File" class="submit-button mt-2 mb-5 btn btn-dark">
-                </div>
-            </form>
-        </div>
-        <!-- Multiple Files -->
-        <div class="multiple-files-form">
-            <form action="/api/files" enctype="multipart/form-data" method="POST">
-                <input type="file" id="files" name="files" multiple class="input-file">
-                <div>
-                    <input type="submit" value="Upload Files" class="submit-button mt-2 btn btn-dark">
-                </div>
-            </form>
-        </div>
     </div>
-
 </body>
 
 </html>
