@@ -15,7 +15,9 @@ app.use(express.static("public"));
 //Routes
 
 app.use("/", apiRoutes)
-
+app.use("*",(req, res) => {
+    res.status(404).send("NOT FOUND")
+})
 
 
 
